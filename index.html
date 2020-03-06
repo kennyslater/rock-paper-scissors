@@ -1,0 +1,58 @@
+<!DOCTYPE html> 
+
+<html>
+<head>
+<title>Rock Paper Scissors</title>    
+</head>
+<script>
+    
+    window.location.reload(true);
+    const computerMove = ["rock", "paper", "scissors"];
+    const computerPlay = computerMove[Math.floor(Math.random() * computerMove.length)];
+    
+    let userMove = prompt('Rock, Paper or Scissors?', '').toLowerCase();
+
+        if (userMove === computerPlay) {
+        alert ('Draw! Computer played ' +computerPlay+ ". Play Again");
+    }   else if (userMove === 'rock' && computerPlay === 'paper'){
+        alert ('Computer played ' +computerPlay+ '. You loose! Paper beats rock!');
+    }   else if (userMove === 'rock' && computerPlay === 'scissors'){
+        alert ('Computer played ' +computerPlay+ '. You win! Rock beats scissors!');
+    }   else if (userMove === 'paper' && computerPlay === 'rock'){
+        alert ('Computer played ' +computerPlay+ '. You win! Paper beats rock!');
+    }   else if (userMove === 'paper' && computerPlay === 'scissors'){
+        alert ('Computer played ' +computerPlay+ '. You loose! Scissors beats paper!');
+    }   else if (userMove === 'scissors' && computerPlay === 'rock'){
+        alert ('Computer played ' +computerPlay+ '. You Loose! Rock beats scissors!');
+    }   else if (userMove === 'scissors' && computerPlay === 'paper'){
+        alert ('Computer played ' +computerPlay+ '. You Win! Scissors beats paper!');
+    }
+
+</script>    
+
+    
+</html>
+
+<!--- Extra 
+
+    let computerMove = ['Rock', 'Paper', 'Scissors']
+    function computerPlay(){
+            let randomNumber = Math.floor(Math.random() * computerMove.length);
+            let choice = computerMove[randomNumber];  
+            computerMove = choice;    
+    }    
+    
+
+    console.log("Computer Plays", computerPlay);
+
+   if (userMove === computerPlay) {
+        alert ('Draw! Play Again')
+    }else if (userMove === 'Rock' && computerPlay === 'Paper'){
+        alert ('You loose! Paper beats rock.');
+    } else (userMove === 'Rock' && computerPlay === 'Scissors'){
+        alert ('You win! Rock beats scissors!');
+    } else (userMove === 'Paper' && computerPlay === 'Rock'){
+        alert ('You win! Paper beats rock.');
+    }
+
+--->
