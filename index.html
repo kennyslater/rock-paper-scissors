@@ -1,33 +1,89 @@
 <!DOCTYPE html> 
 
-<html>
-<head>
-<title>Rock Paper Scissors</title>    
-</head>
-<script>
-    
-    window.location.reload(true);
-    const choice = ["rock", "paper", "scissors"];
-    const computerMove = choice[Math.floor(Math.random() * choice.length)];
-    let userMove = prompt('Rock, Paper or Scissors?', '').toLowerCase(); 
-    
-        if (userMove === computerMove) {
-        alert ('Draw! Computer played ' +computerMove+ ". Play Again");
-    }   else if (userMove === 'rock' && computerMove === 'paper'){
-        alert ('Computer played ' +computerMove+ '. You lose! Paper beats rock!');
-    }   else if (userMove === 'rock' && computerMove === 'scissors'){
-        alert ('Computer played ' +computerMove+ '. You win! Rock beats scissors!');
-    }   else if (userMove === 'paper' && computerMove === 'rock'){
-        alert ('Computer played ' +computerMove+ '. You win! Paper beats rock!');
-    }   else if (userMove === 'paper' && computerMove === 'scissors'){
-        alert ('Computer played ' +computerMove+ '. You lose! Scissors beats paper!');
-    }   else if (userMove === 'scissors' && computerMove === 'rock'){
-        alert ('Computer played ' +computerMove+ '. You lose! Rock beats scissors!');
-    }   else if (userMove === 'scissors' && computerMove === 'paper'){
-        alert ('Computer played ' +computerMove+ '. You Win! Scissors beats paper!');
-    }   
+<html lang="en">
 
-</script>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Rock Paper Scissors</title>    
+    </head>
+
+    <body>
+
+        <div>
+            <h2>Pick your move</h2>
+        </div> 
+    
+        <div>
+            <p class="pc-score">Score</p> <p class="human-score"></p>
+        </div>    
+    
+
+        <div>
+            <button class="btn" data-hand="Rock">Rock</button>
+            <button class="btn" data-hand="Paper">Paper</button>
+            <button class="btn" data-hand="Scissors">Scissors</button>
+        </div>  
+
+        <div class="result-div">
+            <h2 class='result'></h2>
+        </div>
+
+        <script>
+            const btns = document.querySelectorAll(".btn");
+            const resultText = document.querySelector(".result");
+
+            let game = true;
+
+            function computerPlay(){
+            const choices = ["Rock", "Paper", "Scissors"];
+            return choices[Math.floor(Math.random() * choices.length)];
+            }
+
+            function playRound(){
+            const userMove = event.target.dataset.hand;
+            const computerMove = computerPlay();
+            const resultText = document.querySelector(".result");
+            const humanScore = document.querySelector(".human-score");
+            const pcScore = document.querySelector(".pc-score");  
+    
+                
+            if          (userMove === computerMove) {
+                        resultText.textContent = `Draw! Computer played ${computerMove}.`;
+        
+        }   else if     ((userMove === 'Rock' && computerMove === 'Paper') || 
+                        (userMove === 'Paper' && computerMove === 'Scissors') || 
+                        (userMove === 'Scissors' && computerMove === 'Rock')
+        ){              resultText.textContent = `You lose this round! ${computerMove} beats ${userMove}.`, pcScore.textContent = `Plus 1 Point!`;
+       
+        }   else if     ((userMove === 'Rock' && computerMove === 'Scissors')|| 
+                        (userMove === 'Paper' && computerMove === 'Rock') ||
+                        (userMove === 'Scissors' && computerMove === 'Paper')
+        ){              resultText.textContent = `You win this round! ${userMove} beats ${computerMove}.`, humanScore.textContent = `Plus 1 Point!`;    
+        }
+        }
+    
+        
+        
+        btns.forEach(btn => btn.addEventListener("click", playRound));
+
+        </script>    
+
+</body>    
+
   
     
 </html>
+<!---
+
+alert('You win! Computer played ' +computerMove+'. ' +userMove+ ' beats ' +computerMove+'!');
+
+alert('You lose! Computer played ' +computerMove+'. ' +computerMove+ ' beats ' +userMove+'!')
+
+alert ('Draw! Computer played ' +computerMove+ ". Play Again")
+
+, pcScore.textContent = `Plus 1 Point!`;
+
+           
+         
+--->
