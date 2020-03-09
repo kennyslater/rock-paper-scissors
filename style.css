@@ -1,0 +1,81 @@
+*    {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+
+body{
+    font-family: 'Press Start 2P', cursive;    
+}
+
+.main {
+    margin: 0 auto;
+    width: 70%;
+    text-align: center;
+    padding-top: 200px;
+    } 
+.buttons {
+    display: inline-block;
+    display: flex;
+    align-content: center; 
+    padding-bottom: 50px;
+}
+
+.btn{
+  outline:none;
+  border:none;
+  cursor:pointer;
+  display:block;
+  position:relative;
+  background-color:#00ffbd;
+  font-size: 16px;
+  font-weight:300px;
+  font-family:Lato;
+  color:white;
+  text-transform: uppercase;
+  letter-spacing:2px;
+  padding: 25px 80px;
+  margin: 0 auto;
+  border-radius:20px;
+  box-shadow: 0 6px #28283d
+}
+
+.btn:hover{
+  box-shadow: 0 4px #28283d;
+  top: 2px;
+}
+
+.btn:active{
+  box-shadow: none;
+  top: 6px;
+}
+
+.scores {
+    display: inline-block;
+    padding-bottom: 40px;
+    padding-top: 50px;
+}
+
+.computerScore {
+    float: left;
+    padding-right: 50px;
+}
+
+.playerScore {
+    float: right;
+    padding-left: 50px;
+}
+
+.result-div {
+    width: 100%;
+    align-content: center;
+    text-align: center;
+}
+
+.human-score{
+    padding-top: 20px;
+}
+
+.pc-score{
+    padding-top: 20px;
+}
