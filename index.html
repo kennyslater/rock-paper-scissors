@@ -14,25 +14,36 @@
             <h2>Pick your move</h2>
         </div> 
     
-        <div>
-            <p class="pc-score">Score</p> <p class="human-score"></p>
+        <div class="scores">
+            <div> <!---PC Score Counter--->
+               <h2>Computer Score</h2> 
+                <h2 class="pc-score">0</h2>
+            </div>
+            
+            <div> <!--- Play Score Counter--->
+                <h2>Your Score</h2>
+                <h2 class="human-score">0</h2>
+            </div>
         </div>    
     
 
-        <div>
+        <div> <!--- User Input Buttons --->
             <button class="btn" data-hand="Rock">Rock</button>
             <button class="btn" data-hand="Paper">Paper</button>
             <button class="btn" data-hand="Scissors">Scissors</button>
         </div>  
 
-        <div class="result-div">
+        <div class="result-div"> <!---Results Display --->
             <h2 class='result'></h2>
         </div>
 
-        <script>
+        <script>            
+            a = 1
+            b = 1
             const btns = document.querySelectorAll(".btn");
             const resultText = document.querySelector(".result");
-
+            
+           
             let game = true;
 
             function computerPlay(){
@@ -45,8 +56,9 @@
             const computerMove = computerPlay();
             const resultText = document.querySelector(".result");
             const humanScore = document.querySelector(".human-score");
-            const pcScore = document.querySelector(".pc-score");  
-    
+            const pcScore = document.querySelector(".pc-score");
+            
+                
                 
             if          (userMove === computerMove) {
                         resultText.textContent = `Draw! Computer played ${computerMove}.`;
@@ -54,17 +66,24 @@
         }   else if     ((userMove === 'Rock' && computerMove === 'Paper') || 
                         (userMove === 'Paper' && computerMove === 'Scissors') || 
                         (userMove === 'Scissors' && computerMove === 'Rock')
-        ){              resultText.textContent = `You lose this round! ${computerMove} beats ${userMove}.`, pcScore.textContent = `Plus 1 Point!`;
+        ){              resultText.textContent = `You lose this round! ${computerMove} beats ${userMove}.`, pcScore.textContent = (a++);
        
         }   else if     ((userMove === 'Rock' && computerMove === 'Scissors')|| 
                         (userMove === 'Paper' && computerMove === 'Rock') ||
                         (userMove === 'Scissors' && computerMove === 'Paper')
-        ){              resultText.textContent = `You win this round! ${userMove} beats ${computerMove}.`, humanScore.textContent = `Plus 1 Point!`;    
+        ){              resultText.textContent = `You win this round! ${userMove} beats ${computerMove}.`, humanScore.textContent = (b++); 
         }
-        }
-    
-        
-        
+            if (document.querySelector(".human-score").textContent === '5') {
+                alert ('You Win! Your Score: ' +humanScore.textContent+  " Computer's Score: " +pcScore.textContent+ '. Play again?');
+                location.reload();
+            }   else if (document.querySelector(".pc-score").textContent === '5') {
+                alert ('You lose! Your Score: ' +humanScore.textContent+ " Computer's Score: " +pcScore.textContent+ '. Want to try again?');
+                location.reload();
+            }  
+                
+            }
+                    
+            
         btns.forEach(btn => btn.addEventListener("click", playRound));
 
         </script>    
