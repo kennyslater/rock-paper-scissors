@@ -52,7 +52,7 @@ body{
 
 .scores {
     display: inline-block;
-    padding-bottom: 40px;
+    padding-bottom: 30px;
     padding-top: 50px;
 }
 
@@ -77,5 +77,13 @@ body{
 }
 
 .pc-score{
+    padding-top: 20px;
+}
+
+.roundsPlayed{
+    padding-bottom: 30px;
+}
+
+.roundNumber{
     padding-top: 20px;
 }
